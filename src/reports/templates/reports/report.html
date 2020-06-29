@@ -6,8 +6,44 @@
 
 
 {% block content %}
-    {{ form | crispy}}
-    <hr>
-    {{pform | crispy}}
-    <br>
+   <div class=" container bg-white shadow-lg py-2">
+        <div class="row">
+            <div class="col-2">
+                <form action="" method="POST">
+                    {{ form | crispy}}
+                    <button type="submit" class="btn btn-primary w-100 shadow-sm mt-3">send</button>
+                </form>           
+                <br>
+            </div>
+
+            <div class="col-10">
+                <div style="overflow-y:scroll" class="w-100 h-100 bg-light rounded border">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr class="text-center">
+                                <th scope="col">Day</th>
+                                <th scope="col">Start</th>
+                                <th scope="col">End</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Plan</th>
+                                <th scope="col">Execution</th>
+                                <th scope="col">Prod Line</th>
+                                <th scope="col">Problems</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for obj in object_list %}
+                                {{ obj.day }}
+                                <br/>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div
+   </div>
 {% endblock content %}
